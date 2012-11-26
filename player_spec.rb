@@ -4,12 +4,11 @@ require_relative 'player'
 
 describe 'player' do
 
-	#before do
-		
-	#end
+	before do
+		@player = Player.new("aaron", 150)		
+	end
 
 	it "has a capitalized name" do
-		@player = Player.new("aaron", 150)
 
 		@player.name.should == "Aaron"
 	end
@@ -20,7 +19,7 @@ describe 'player' do
 	end 
 
 	it "has a string representation" do
-		@player.to_s.should == "I'm #{@name} with a health of #{@health} and a score of #{@score}."
+		@player.to_s.should == "I'm Aaron with a health of 150 and a score of 750."
 	end
 
 
@@ -28,9 +27,26 @@ describe 'player' do
 		@player.score.should ==  750
 	end
 
-	it "increases health by 15 when w00ted"
+	it "increases health by 15 when w00ted" do
+		@player.w00t
+		@player.health.should == 165
+	end
 	 
 
-	it "decreases health by 10 when blammed" 
+	it "decreases health by 10 when blammed" do
+		@player.blam
+		@player.health.should == 140
+	end
+
+	it "is strong" do
+		@player.strong? == "true"
+		#@player.should be_strong
+	end
+
+	it "is weak" do
+		@player.blam
+		@player.should_not be_strong
+	end
+
 
 end

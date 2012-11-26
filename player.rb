@@ -19,12 +19,20 @@ class Player
   end
 
   def w00t
-  	@health +=10
+  	@health += 15
     puts "#{@name} got w00ted!" 
   end
 
   def score
     @health * @name.length
+  end
+
+  def strong?
+    if @health >= 150 
+      puts "#{@name} is strong!"
+    else
+      puts "#{@name} is weak!"
+    end
   end
 end
  
