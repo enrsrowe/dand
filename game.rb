@@ -1,5 +1,5 @@
-require_relative 'die'
-require_relative 'player'
+require_relative 'player' #needed to add players to the game
+require_relative 'game_turn'
 
 class Game
   attr_reader :title
@@ -13,13 +13,17 @@ class Game
     @players << name 
   end
 
-  def play
+  def play #(rounds)
     puts "You are playing a #{@title} game with #{@players.size} other players"
     puts "Let Battle Commence!"
 
+    @players.each do |player| 
+      puts player
+    end
+
 
     @players.each do |player|
-      Die.review(player)   
+      GameTurn.take_turn(player)   
       puts player
     end
   end

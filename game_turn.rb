@@ -1,4 +1,5 @@
-
+require_relative 'game'
+require_relative 'player'
 
 module GameTurn
 
@@ -13,13 +14,11 @@ module GameTurn
 
     case number_rolled
       when 1..2
-        x.blam
-        puts "#{player.name} was blammed! :-("
+        player.blam
       when 3..4
         puts "#{player.name} was skipped." 
       else      
-        x.w00t
-        puts "#{player.name} was w00ted!"
+        player.w00t
       end   
   end
 
