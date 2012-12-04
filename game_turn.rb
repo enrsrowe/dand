@@ -19,7 +19,9 @@ module GameTurn
         puts "#{player.name} was skipped." 
       else      
         player.w00t
-      end   
+      end
+
+         
   end
 
 end

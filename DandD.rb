@@ -12,14 +12,3 @@ currentgame.add_player(player2)
 currentgame.add_player(player3)
 currentgame.play
 
-currentgame = Game.new("JMU Lecturers Face Off!: Round 2")
-currentgame.add_player(player1)
-currentgame.add_player(player2)
-currentgame.add_player(player3)
-currentgame.play
-
-currentgame = Game.new("JMU Lecturers Face Off!: Round 3")
-currentgame.add_player(player1)
-currentgame.add_player(player2)
-currentgame.add_player(player3)
-currentgame.play
