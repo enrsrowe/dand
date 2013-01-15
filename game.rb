@@ -33,7 +33,7 @@ class Game
       GameTurn.take_turn(player)
 
       treasure = TreasureTrove.random
-      puts "After playing #{game.title}, received a #{treasure.name}."
+      puts "After playing #{player.title}, received a #{treasure.name}."
 
       puts player
     end

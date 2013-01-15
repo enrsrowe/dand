@@ -1,7 +1,7 @@
 class Player
-  attr_reader :health
-  attr_accessor :name
-    #attr_writer
+  attr_reader :health #make health readable
+  attr_accessor :name #make name readable
+  #attr_writer
 
 	def initialize(name, health=100)
 		@name = name.capitalize
