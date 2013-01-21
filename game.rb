@@ -11,6 +11,23 @@ class Game
     @players = []
   end
 
+  #Added week 12
+  def load_players(ARGV.shift || filename)
+    File.readlines(filename).each do |line|
+      name, health = line.split(',')
+      player = Player.new(name, health.to_i)
+      add_player(player)
+    end
+  end
+
+  def save_high_scores(to_file="high_scores.txt")
+    File.open(to_file, 'w') do |file|
+      players.sort.each do |player|
+        file.puts "#{player.name}, #{player.score}"
+      end
+    end    
+  end
+
   def add_player(name)
     @players << name 
   end
@@ -28,7 +45,7 @@ class Game
       end
 
       #show available treasures.
-      treasures = TreasureTrove::TREASURES
+      treasures = TreasureTrove::TREASURES #assign the treasures array inside the TreasureTrove Module to treasures.
       puts "\nThere are #{treasures.size} in the treasure trove."
       treasures.each do |treasure|
       puts "#{treasure.name} (#{treasure.points})" 
@@ -41,6 +58,7 @@ class Game
         #puts "After playing #{player.title}, received a #{treasure.name}."
         #puts player      
       end
+
     end
   end
 
@@ -69,7 +87,7 @@ class Game
     @players.each do |player|
       puts "\n#{player.name}'s point totals:"
 
-      #create a listing of points accumulated on a per treasure basis      
+      #create a listing of points accumulated on a per treasure basis      #Week 12?
       player.each_found_treasure do |treasure|
         puts "#{treasure.name} total points: #{treasure.points}"
       end

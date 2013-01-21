@@ -76,5 +76,17 @@ describe Player do
       @players.sort.should == [@player3, @player2, @player1]
     end
   end
+
+  #Added week 11.
+  it "assigns a treasure for points during a player's turn" do     
+    game = Game.new("Knuckleheads")
+    player = Player.new("Aaron")
+       
+    game.add_player(player)
+    
+    game.play(1)
+    
+    player.points.should_not be_zero
+  end
   
 end

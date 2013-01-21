@@ -17,7 +17,7 @@ class Player
   end
 
 	def to_s
-  	"I'm #{@name} with a health of #{@health} and a score of #{@score}."
+  	"I'm #{@name} with health = #{@health}, points = #{points}, and score of #{@score}." #points?
   end
 
   def blam
@@ -50,8 +50,17 @@ class Player
 
   #calculate a players points scored for finding treasure
   def points
-    @found_treasures.valyes.redcure(0, :+)    
+    @found_treasures.values.reduce(0, :+)    
   end
+
+  #Week 12 - Print total points on a per treasure basis. LOOK HERE
+  def each_found_treasure
+    @found_treasures.each do |name, value|
+      Treasure = Treasure.new(name, value)
+      yield Treasure
+    end
+  end
+
 
 end
 
